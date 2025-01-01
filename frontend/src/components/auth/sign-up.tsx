@@ -7,11 +7,11 @@ const SignUp = () => {
   const [image, setImage] = useState<string | ArrayBuffer | null>(null);
   const inputImageRef = useRef<HTMLInputElement>(null);
 
-  const handleUploadImageClick = () => {
+  const handleUploadImageClick = useCallback(() => {
     inputImageRef.current?.click();
-  };
+  }, [inputImageRef]);
 
-  const handleFileChange = () => {
+  const handleFileChange = useCallback(() => {
     const imageFile = inputImageRef.current?.files?.[0];
     if (imageFile) {
       const reader = new FileReader();
@@ -24,7 +24,7 @@ const SignUp = () => {
       };
       reader.readAsDataURL(imageFile);
     }
-  };
+  }, []);
   return (
     <div className="flex flex-col gap-4">
       <div className="space-y-2">
