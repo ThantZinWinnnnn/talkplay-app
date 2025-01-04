@@ -1,11 +1,10 @@
 import { useState } from "react";
-import CreateRoom from "./create-room";
-import JoinRoom from "./join-room";
 import ToggleButton from "../utils/ToggleButton";
+import TypeRaceCreateForm from "./type-race-create-form";
+import TypeRaceJoinForm from "./type-race-join-form";
 
 type RoomType = "create" | "join";
-
-const Forms = () => {
+const TypeRaceForm = () => {
   const [form, setForm] = useState<RoomType>("create");
   return (
     <div className="space-y-6">
@@ -13,13 +12,13 @@ const Forms = () => {
       <div className="flex flex-col gap-3 border border-slate-400 rounded-md p-4">
         {form === "create" ? (
           <div>
-            <h2 className="text-center text-lg font-semibold">Create Room</h2>
-            <CreateRoom />
+            <h2 className="text-lg font-semibold text-center">Create Game</h2>
+            <TypeRaceCreateForm />
           </div>
         ) : (
           <div>
-            <h2 className="text-center text-lg font-semibold">Join Room</h2>
-            <JoinRoom />
+            <h2 className="text-lg font-semibold text-center">Join Game</h2>
+            <TypeRaceJoinForm />
           </div>
         )}
       </div>
@@ -27,4 +26,4 @@ const Forms = () => {
   );
 };
 
-export default Forms;
+export default TypeRaceForm;

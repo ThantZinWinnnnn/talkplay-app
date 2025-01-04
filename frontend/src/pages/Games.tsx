@@ -9,6 +9,8 @@ import Lottie from "react-lottie";
 import { GameType } from "@/types";
 import { useMemo, useState } from "react";
 import Forms from "@/components/canvas-form/forms";
+import TypeRaceForms from "@/components/type-race/type-race-forms";
+import TicTacToeForm from "@/components/tic-tac-toe/tic-tac-toe-form";
 const games = [
   {
     name: "Canvas",
@@ -77,7 +79,15 @@ const GamesPage = () => {
       <div className="space-y-6 flex flex-col items-center">
         <Lottie options={defaultOptions} width={250} />
         <p className="text-center text-2xl font-semibold">{gameName}</p>
-        <div>{type === "Canvas" ? <Forms /> : null}</div>
+        <div>
+          {type === "Canvas" ? (
+            <Forms />
+          ) : type === "Typing" ? (
+            <TypeRaceForms />
+          ) : type === "TicTacToe" ? (
+            <TicTacToeForm />
+          ) : null}
+        </div>
       </div>
     </main>
   );
