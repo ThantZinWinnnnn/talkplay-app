@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import canvasDrawing from "@/components/lottie/canvas.json";
 import typing from "@/components/lottie/typing.json";
 import ticTacToe from "@/components/lottie/tic-tac-toe.json";
-import { Plus, UserPlus } from "lucide-react";
 
 import Lottie from "react-lottie";
 

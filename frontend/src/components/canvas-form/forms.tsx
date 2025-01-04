@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "../ui/button";
 import { Plus, UserPlus } from "lucide-react";
 import CreateRoom from "./create-room";
@@ -11,11 +11,23 @@ const Forms = () => {
   return (
     <div className="space-y-6">
       <div className="flex gap-4 justify-center">
-        <Button className="px-8 py-5" onClick={() => setForm("create")}>
+        <Button
+          className={`${
+            form === "create"
+              ? "bg-black text-white hover:bg-black hover:text-white"
+              : ""
+          } px-8 py-5 transition-all duration-75 ease-in-out`}
+          variant={"outline"}
+          onClick={() => setForm("create")}
+        >
           Create <Plus />
         </Button>
         <Button
-          className="px-8 py-5"
+          className={`${
+            form === "join"
+              ? "bg-black text-white hover:bg-black hover:text-white"
+              : ""
+          } px-8 py-5 transition-all duration-75 ease-in-out`}
           variant={"outline"}
           onClick={() => setForm("join")}
         >
@@ -25,12 +37,12 @@ const Forms = () => {
       <div className="flex flex-col gap-3 border border-slate-400 rounded-md p-4">
         {form === "create" ? (
           <div>
-            <h2>Create Room</h2>
+            <h2 className="text-center text-lg font-semibold">Create Room</h2>
             <CreateRoom />
           </div>
         ) : (
           <div>
-            <h2>Join Room</h2>
+            <h2 className="text-center text-lg font-semibold">Join Room</h2>
             <JoinRoom />
           </div>
         )}

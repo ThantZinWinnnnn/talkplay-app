@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 import { Input } from "../ui/input";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "../ui/button";
+import { Label } from "../ui/label";
 
 type State = {
   roomName: string;
@@ -43,32 +44,42 @@ const CreateRoom = () => {
   return (
     <div>
       <form className="flex flex-col gap-5  p-4" onSubmit={formSubmitHandler}>
-        <Input
-          placeholder="Room Name"
-          value={state.roomName}
-          onChange={(e) =>
-            dispatch({ type: "SET_ROOM_NAME", payload: e.target.value })
-          }
-        />
-        <div className="flex gap-3">
-          <Input value={state.roomId} readOnly />
-          <Button
-            type="button"
-            onClick={() => dispatch({ type: "SET_ROOM_ID", payload: uuidv4() })}
-          >
-            Generate
-          </Button>
-          <Button
-            type="button"
-            variant={"outline"}
-            onClick={() => {
-              navigator.clipboard.writeText(state.roomId);
-              dispatch({ type: "SET_COPIED", payload: true });
-            }}
-          >
-            {state.copied ? "Copied" : "Copy"}
-          </Button>
+        <div className="space-y-3">
+          <Label htmlFor="roomName">Room Name</Label>
+          <Input
+            placeholder="Room Name"
+            value={state.roomName}
+            onChange={(e) =>
+              dispatch({ type: "SET_ROOM_NAME", payload: e.target.value })
+            }
+            id="roomName"
+          />
         </div>
+        <div className="space-y-3">
+          <Label htmlFor="roomId">Room ID</Label>
+          <div className="flex gap-3">
+            <Input value={state.roomId} readOnly id="roomId" />
+            <Button
+              type="button"
+              onClick={() =>
+                dispatch({ type: "SET_ROOM_ID", payload: uuidv4() })
+              }
+            >
+              Generate
+            </Button>
+            <Button
+              type="button"
+              variant={"outline"}
+              onClick={() => {
+                navigator.clipboard.writeText(state.roomId);
+                dispatch({ type: "SET_COPIED", payload: true });
+              }}
+            >
+              {state.copied ? "Copied" : "Copy"}
+            </Button>
+          </div>
+        </div>
+
         <Button type="submit" className="py-6">
           Create Room
         </Button>
