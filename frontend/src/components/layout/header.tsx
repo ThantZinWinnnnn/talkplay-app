@@ -41,7 +41,7 @@ const UserAvatar = () => (
 
 const Header = () => {
   return (
-    <header className="w-full bg-white shadow-md">
+    <header className="w-full bg-white shadow-md sticky top-0 backdrop-blur-md">
       <div className="flex justify-between items-center py-6 px-6">
         <nav>
           <ul className="flex gap-4">

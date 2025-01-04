@@ -1,15 +1,11 @@
-import React from "react";
 import Header from "./header";
+import { Outlet } from "react-router-dom";
 
-type LayoutProps = {
-  children: React.ReactNode;
-};
-
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout = () => {
   return (
     <div className="flex flex-col h-screen">
       <Header />
-      {children}
+      <Outlet />
     </div>
   );
 };
