@@ -71,7 +71,7 @@ const GamesPage = () => {
             className="py-6"
             onClick={() => setType(gameType as GameType)}
           >
-            <Icon />
+            <Icon aria-label={description} />
             <p>{name}</p>
           </Button>
         ))}
