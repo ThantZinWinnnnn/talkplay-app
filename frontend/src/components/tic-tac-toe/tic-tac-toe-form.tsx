@@ -4,9 +4,13 @@ import joinRoomImg from "@/assets/join-room.webp";
 import { Button } from "../ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Input } from "../ui/input";
+import CreateRoomModal from "./create-room-modal";
+import JoinRoomModal from "./join-room-modal";
 
 const TicTacToeForm = () => {
   const [showForm, setShowForm] = useState(false);
+  const [showCreateRoomModal, setShowCreateRoomModal] = useState(false);
+  const [showJoinRoomModal, setShowJoinRoomModal] = useState(false);
 
   return (
     <div>
@@ -24,18 +28,22 @@ const TicTacToeForm = () => {
             <RoomButton
               imgSrc={createRoomImg}
               text="Create Room"
-              onClick={() => {
-                /* handle create room */
-              }}
+              onClick={() => setShowCreateRoomModal((p) => !p)}
             />
             <RoomButton
               imgSrc={joinRoomImg}
               text="Join Room"
-              onClick={() => {
-                /* handle join room */
-              }}
+              onClick={() => setShowJoinRoomModal((p) => !p)}
             />
           </div>
+          <CreateRoomModal
+            open={showCreateRoomModal}
+            onClose={() => setShowCreateRoomModal(false)}
+          />
+          <JoinRoomModal
+            open={showJoinRoomModal}
+            onClose={() => setShowJoinRoomModal(false)}
+          />
         </div>
       ) : (
         <div className="flex justify-center gap-6">
