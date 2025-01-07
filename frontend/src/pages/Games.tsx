@@ -61,6 +61,20 @@ const GamesPage = () => {
         : "Tic Tac Toe",
     [type]
   );
+
+  const renderGameForm = () => {
+    switch (type) {
+      case "Canvas":
+        return <Forms />;
+      case "Typing":
+        return <TypeRaceForms />;
+      case "TicTacToe":
+        return <TicTacToeForm />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <main className="p-3 flex flex-col gap-4 overflow-y-scroll h-full">
       <section className="flex justify-center gap-4 pt-4">
@@ -79,15 +93,7 @@ const GamesPage = () => {
       <div className="space-y-6 flex flex-col items-center">
         <Lottie options={defaultOptions} width={250} />
         <p className="text-center text-2xl font-semibold">{gameName}</p>
-        <div>
-          {type === "Canvas" ? (
-            <Forms />
-          ) : type === "Typing" ? (
-            <TypeRaceForms />
-          ) : type === "TicTacToe" ? (
-            <TicTacToeForm />
-          ) : null}
-        </div>
+        <div>{renderGameForm()}</div>
       </div>
     </main>
   );
