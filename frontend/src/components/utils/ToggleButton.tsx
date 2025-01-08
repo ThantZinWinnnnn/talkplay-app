@@ -9,26 +9,25 @@ interface ToggleButtonProps {
 }
 
 const ToggleButton: React.FC<ToggleButtonProps> = ({ form, setForm }) => {
+  const buttonClasses = (type: RoomType) =>
+    form === type ? "bg-black text-white hover:bg-black hover:text-white" : "";
+
   return (
     <div className="flex gap-4 justify-center">
       <Button
-        className={`${
-          form === "create"
-            ? "bg-black text-white hover:bg-black hover:text-white"
-            : ""
-        } px-8 py-5 transition-all duration-75 ease-in-out`}
-        variant={"outline"}
+        className={`${buttonClasses(
+          "create"
+        )} px-8 py-5 transition-all duration-75 ease-in-out`}
+        variant="outline"
         onClick={() => setForm("create")}
       >
         Create <Plus />
       </Button>
       <Button
-        className={`${
-          form === "join"
-            ? "bg-black text-white hover:bg-black hover:text-white"
-            : ""
-        } px-8 py-5 transition-all duration-75 ease-in-out`}
-        variant={"outline"}
+        className={`${buttonClasses(
+          "join"
+        )} px-8 py-5 transition-all duration-75 ease-in-out`}
+        variant="outline"
         onClick={() => setForm("join")}
       >
         Join <UserPlus />
