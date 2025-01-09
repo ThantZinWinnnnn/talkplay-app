@@ -3,6 +3,7 @@ import AuthenticationPage from "./pages/Authentication";
 import ChatsPage from "./pages/Chats";
 import Layout from "./components/layout";
 import GamesPage from "./pages/Games";
+import CanvasPage from "./pages/CanvasPage";
 
 const routes = [
   {
@@ -16,6 +17,10 @@ const routes = [
       {
         path: "games",
         element: <GamesPage />,
+      },
+      {
+        path: "canvas",
+        element: <CanvasPage />,
       },
     ],
   },
