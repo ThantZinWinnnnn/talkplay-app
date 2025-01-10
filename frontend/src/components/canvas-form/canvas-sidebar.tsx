@@ -1,5 +1,3 @@
-import React from "react";
-import { colors } from "@/utils/constants";
 import { Separator } from "../ui/separator";
 const CanvasSidebar = () => {
   return (
