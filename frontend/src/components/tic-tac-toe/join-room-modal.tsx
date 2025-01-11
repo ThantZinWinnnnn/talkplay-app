@@ -1,12 +1,5 @@
-import React from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../ui/dialog";
+import React, { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Button } from "../ui/button";
 import joinRoomImg from "@/assets/join-room.webp";
 import { Input } from "../ui/input";
@@ -17,6 +10,16 @@ type JoinRoomModalProps = {
 };
 
 const JoinRoomModal: React.FC<JoinRoomModalProps> = ({ open, onClose }) => {
+  const [roomId, setRoomId] = useState("");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRoomId(e.target.value);
+  };
+
+  const handleJoinRoom = () => {
+    console.log("Joining room with ID:", roomId);
+    // Add join room logic here
+  };
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent>
@@ -32,8 +35,12 @@ const JoinRoomModal: React.FC<JoinRoomModalProps> = ({ open, onClose }) => {
             />
           </div>
           <div className="flex gap-4  mt-4">
-            <Input placeholder="Enter Room ID" />
-            <Button>Join Room</Button>
+            <Input
+              placeholder="Enter Room ID"
+              value={roomId}
+              onChange={handleInputChange}
+            />
+            <Button onClick={handleJoinRoom}>Join Room</Button>
           </div>
         </div>
       </DialogContent>
