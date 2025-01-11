@@ -8,6 +8,8 @@ import {
   DialogTrigger,
 } from "../ui/dialog";
 import { Button } from "../ui/button";
+import joinRoomImg from "@/assets/join-room.webp";
+import { Input } from "../ui/input";
 
 type JoinRoomModalProps = {
   open: boolean;
@@ -21,9 +23,19 @@ const JoinRoomModal: React.FC<JoinRoomModalProps> = ({ open, onClose }) => {
         <DialogTitle>
           <DialogHeader>Join Room</DialogHeader>
         </DialogTitle>
-        <DialogFooter>
-          <Button>Join</Button>
-        </DialogFooter>
+        <div className="flex flex-col gap-4">
+          <div className="w-32 h-32 mx-auto">
+            <img
+              src={joinRoomImg}
+              alt="Join Room"
+              className="w-full object-contain aspect-square"
+            />
+          </div>
+          <div className="flex gap-4  mt-4">
+            <Input placeholder="Enter Room ID" />
+            <Button>Join Room</Button>
+          </div>
+        </div>
       </DialogContent>
     </Dialog>
   );
