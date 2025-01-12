@@ -5,7 +5,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "../ui/dialog";
 import createRoomImg from "@/assets/create-room.webp";
 import { nanoid } from "nanoid";

@@ -1,6 +1,5 @@
 import CanvasBord from "@/components/canvas-form/canvas-board";
 import CanvasSidebar from "@/components/canvas-form/canvas-sidebar";
-import React from "react";
 
 const CanvasPage = () => {
   return (
