@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-const board = Array(9).fill(null);
-
 type Player = "X" | "O";
 
 const useTicTacToe = () => {
