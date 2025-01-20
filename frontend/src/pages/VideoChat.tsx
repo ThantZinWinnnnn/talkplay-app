@@ -1,5 +1,9 @@
 import React from "react";
 
 export const VideoChat = () => {
-  return <div>VideoChat</div>;
+  return (
+    <div>
+      <h1>Video Chat</h1>
+    </div>
+  );
 };
